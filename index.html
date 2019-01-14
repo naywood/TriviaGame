@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>GOT Trivia</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    
+    <!-- loaded bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+</head>
+<body>
+        <div class= "container">
+            
+            <!--GOT Trivia Jumbotron!-->
+            <div class="jumbotron">
+                <div class="container">
+                <h1>Game of Thrones Trivia</h1>
+                
+              </div>
+            </div>
+        
+        <div class= "row" id="inst">
+            <div class = "col-sm-12">
+                    <div class="card">
+                            <div class="card-header text-center"> Instructions</div>
+                                <div class="card-body">
+                                <p> Select the correct answer to the questions before your time runs out! All questions are based off of HBO's Game of Thrones.</p>
+                                <button type="button" class="btn btn-dark btn-lg" id="start">START GAME</button>
+
+                                </div>
+                            </div>
+
+            </div>
+
+        </div> 
+        <div class= "row">
+            <div class= "col-sm-3">
+                    <div class="card">
+                    <div class="card-header text-center">Target Score</div>
+                    <div class="card-body">
+                        <h3 class="text-center" id= "targetScore"></h3>
+                    </div>
+                  </div>
+            </div>
+
+            <div class= "col-sm-3">
+                    <div class="card">
+                    <div class="card-header text-center">Your Score</div>
+                    <div class="card-body">
+                        <h3 class="text-center" id="yourScore"></h3>
+                    </div>
+                  </div>
+            </div>
+
+
+            <div class= "col-sm">
+                    <div class="card">
+                    <div class="card-header text-center">Wins</div>
+                         <h3 class="card-body text-center" id="win"> 0 </h3>
+                              </div>
+                </div>
+                <div class= "col-sm">
+                    <div class="card">
+                     <div class="card-header text-center">Losses</div>
+                        <h3 class="card-body text-center" id="lost">0</h3>
+                    </div>
+                </div>
+
+            
+        </div>
+
+        <div class= "row">
+                <div class= "col-sm-12" >
+                        <div class="card">
+                        <div class="card-header text-center">Gems</div>
+                        <div class="card-body text-center">
+                            <img src="assets/images/bismuth.jpg" id="bismuth">
+                            <img src="assets/images/rose.jpg" id="rose">
+                            <img src="assets/images/opal.jpg" id="opal">
+                            <img src="assets/images/jade.jpeg" id="jade">
+    
+                        </div>
+                      </div>
+                </div>
+
+
+        </div>
+
+        </div>
+
+<!--Jquery is linked here-->
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
+<!--main game logic is linked here-->
+<script src= "assets/javascript/app.js"></script>
+</body>
+</html>
