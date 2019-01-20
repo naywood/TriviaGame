@@ -8,8 +8,7 @@ $('#start').on('click', function(){
 //clicking of one of the answer buttons button
 $(document).on('click','#answer-button', function(e){
     game.clicked(e);
-    $('#questions').fadeOut(3000);
-    $('#answers').fadeOut(3000);
+  
 
 })
 
@@ -31,8 +30,8 @@ var questions = [
     correctAnswer: "Valar Dohaeris",
     },
     {
-    question: "Wh at two material's are capable of killing White Walkers?",
-    answers: ["Wildfire and Snowballs", "Weirwood and Dragonglass", "Valyrian Steel and Dragonglass","Valyrian Steel and Wildfire"],
+    question: "What two material(s) are capable of killing White Walkers?",
+    answers: ["Wildfire", "Weirwood and Dragonglass", "Valyrian Steel and Dragonglass","Valyrian Steel"],
     correctAnswer: "Valyrian Steel and Dragonglass",
     },
     {
@@ -126,85 +125,81 @@ var questions = [
 var game = {
     questions: questions,
     currentQuestion: 0,
-    counter: 30,
+    counter: 15,
     correct: 0,
     incorrect: 0,
     unanswered:0,
     countdown: function(){
         game.counter--;
         $('#counter').html(game.counter);
-        if(game.counter<=0){
+        if(game.counter===0){
             console.log("TIMES UP!");
             game.timeUp();
         }
     },
     loadQuestion: function(){
         timer = setInterval(game.countdown,1000);
-        $('#counter').html("30");
-        $("#questions").append(questions[game.currentQuestion].question);
-        for(var i=0; i<questions[game.currentQuestion].answers.length; i++){
-            $("#answers").append(' <button id="answer-button" class="btn btn-outline-dark" id="button-'+i+'" data-name="'+questions[game.currentQuestion].answers[i]+'">'+questions[game.currentQuestion].answers[i]+'</button>')
+        $('#counter').html("<h2>15</h2>");
+        $("#questions").html(questions[this.currentQuestion].question);
+        for(var i=0; i<questions[this.currentQuestion].answers.length; i++){
+            $("#answers").append(' <button id="answer-button" class="btn btn-outline-dark" id="button-'+i+'" data-name="'+questions[this.currentQuestion].answers[i]+'">'+questions[this.currentQuestion].answers[i]+'</button>');
         };
     },
     nextQuestion: function(){
-        game.counter =30;
+        game.counter = 15;
         $('#counter').html(game.counter);
         game.currentQuestion++;
-        game.loadQuestion();
-        $('#questions').fadeIn(3000);
-        $('#answers').fadeIn(3000);
+        game.loadQuestion(); 
+       
 
     },
     timeUp: function(){
         clearInterval(timer);
         game.unanswered++;
         $('#message').html('<h2> OUT OF TIME!</h2>');
-        $('#message').append('<h2> The correct answer was:'+questions[game.currentQuestion].correctAnswer+ '</h2>');
-        if(game.currentQuestion==questions.length-1){
-            setTimeout(game.results, 3*1000);
+        $('#message').append('<h2> The correct answer was: '+questions[this.currentQuestion].correctAnswer+ '</h2>');
+        if(this.currentQuestion === questions.length-1){
+            setTimeout(game.results, 2*1000);
         }else{
-            setTimeout(game.nextQuestion, 3*1000); 
+            setTimeout(game.nextQuestion, 2*1000); 
         }
     },
     results: function(){
         clearInterval(timer);
-        $('#message').html("<h2> all done </h2>");
-        $('#message').append("<h3> Correct:"+game.correct+ "</h3>");
-        $('#message').append("<h3> incorrect:"+game.incorrect+ "</h3>");
-        $('#message').append("<h3> unanswered:"+game.unanswered+ "</h3>");
+        $('#message').html("<h2> all done! </h2>");
+        $('#message').append("<h3> Correct: "+game.correct+ "</h3>");
+        $('#message').append("<h3> incorrect: "+game.incorrect+ "</h3>");
+        $('#message').append("<h3> unanswered: "+game.unanswered+ "</h3>");
         $('#message').append("<button id='reset'>Reset</button");
     },
     clicked: function(e){
         clearInterval(timer);
-        if ($(e.target).data("name")==questions[game.currentQuestion].correctAnswer){
+        if ($(e.target).data("name")==questions[this.currentQuestion].correctAnswer){
             game.answeredCorrect();
-            clearInterval(timer);
-            game.correct++;
-            $('#message').html('<h2>YOU GOT IT RIGHT!!!!!!!</h2>');
-            if(game.currentQuestion==questions.length-1){
-                setTimeout(game.results, 3*1000);
             }else{
-                setTimeout(game.nextQuestion, 3*1000); 
+            game.answeredIncorrect();    
             }
-        } else{
-            game.answeredIncorrect();
-            clearInterval(timer);
-            game.incorrect++; 
-            $('#message').html('<h2> OUT OF TIME!</h2>');
-            $('#message').append('<h2> The correct answer was: '+questions[game.currentQuestion].correctAnswer+ '</h2>');
-            $('#message').html('<h2>WRONG!!!!!!!</h2>');
-            $('#message').append('<h2> The correct answer was: '+questions[game.currentQuestion].correctAnswer+ '</h2>');
-            if(game.currentQuestion==questions.length-1){
-                setTimeout(game.results, 3*1000);
-            }else{
-                setTimeout(game.nextQuestion, 3*1000); 
-            }
-        }
     },
     answeredCorrect: function(){
-
+        clearInterval(timer);
+        game.correct++;
+        $('#message').html('You got it right!');
+        if(game.currentQuestion==questions.length-1){
+            setTimeout(game.results, 2*1000);
+        } else{
+            setTimeout(game.nextQuestion, 2*1000);
+        }
     },
     answeredIncorrect: function(){
+        clearInterval(timer);
+        game.incorrect++;
+        $('#message').html('You got it wrong!<');
+        $('#message').html('The correct answer was:'+questions[game.currentQuestion].correctAnswer +'!');
+        if(game.currentQuestion === questions.length-1){
+            setTimeout(game.results, 2*1000);
+        } else{
+            setTimeout(game.nextQuestion, 2*1000);
+        }
        
     },
     reset: function(){
