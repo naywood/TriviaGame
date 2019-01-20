@@ -1,9 +1,24 @@
+//click events
 $('#start').on('click', function(){
     $('#start').remove();
     $('#inst').remove();
+    game.loadQuestion();
 })
 
+//clicking of one of the answer buttons button
+$(document).on('click','#answer-button', function(e){
+    game.clicked(e);
+    $('#questions').fadeOut(3000);
+    $('#answers').fadeOut(3000);
 
+})
+
+//clicking of the reset button
+$(document).on('click','#reset',function(){
+    game.reset();
+})
+
+//global variable object containing all questions, possible answers, and correct answers
 var questions = [
     {
     question: "Where did Daenerys Targaryen eventually hatch her dragon eggs?",
@@ -16,7 +31,7 @@ var questions = [
     correctAnswer: "Valar Dohaeris",
     },
     {
-    question: "What two material's are capable of killing White Walkers?",
+    question: "Wh at two material's are capable of killing White Walkers?",
     answers: ["Wildfire and Snowballs", "Weirwood and Dragonglass", "Valyrian Steel and Dragonglass","Valyrian Steel and Wildfire"],
     correctAnswer: "Valyrian Steel and Dragonglass",
     },
@@ -27,7 +42,7 @@ var questions = [
     },
     {
     question: "What is the name of King Tommen's cat?",
-    answers: ["Ser Pounce","Boots", "Nymeria", "Lady Whiskers"],
+    answers: ["Ser Pounce","Boots", "Ser Tomcat", "Lady Whiskers"],
     correctAnswer: "Ser Pounce",
     },
     {
@@ -36,7 +51,7 @@ var questions = [
     correctAnswer: "Tyrion Lannister",
     },
     {
-    question: "At the end of his training, what must an Unsullied doto prove he has no mercy or weakness?",
+    question: "At the end of his training, what must an Unsullied do to prove he has no mercy or weakness?",
     answers: ["Castrate himself", "Castrate another Unsullied","Kill a newborn slave child","kill a master"],
     correctAnswer: "Kill a newborn slave child",
     },
@@ -46,9 +61,9 @@ var questions = [
     correctAnswer: "Talisa",
     },
     {
-    question: "Who says 'Killing is the sweetest thing there is'?",
-    answers: ["Oberyn Martell","Jaime Lannister", "Rob Baratheon", "Sandor Clegane" ],
-    correctAnswer: "Sandor Clegane",
+    question: "What is the official first sign of winter'?",
+    answers: ["A White Walker takes a baby","Colder temperatures", "A white raven", "Appearance or birth of dire wolves" ],
+    correctAnswer: "A white raven",
     },
     {
     question: "What direwolf dies first?",
@@ -67,8 +82,8 @@ var questions = [
     },
     {
     question: "How did Jojen Reed die?",
-    answers: ["Wildlings", "A small army fof "],
-    correctAnswer: "",
+    answers: ["Wildlings killed him", "A small army of the dead","Brandon Stark killed him","He froze to death"],
+    correctAnswer: "A small army of the dead got to him",
     },
     {
     question: "Who is the Queen of Thorns?",
@@ -82,28 +97,124 @@ var questions = [
     },
     {
     question: "What is Little Finger's sigil?",
-    answers: ["Blackfish", "Mokingbird", "Raven", "Otter"],
+    answers: ["Blackfish", "Mockingbird", "Raven", "Otter"],
     correctAnswer: "Mockingbird",
     },
     {
-    question: "?",
-    answers: [],
-    correctAnswer: "",
+    question: "Who helped Sansa escape King's Landing following Joffrey's death?",
+    answers: ["Dontos Hollard", "Petyr Baelish","Lord Varys", "Shae"],
+    correctAnswer: "Dontos Hollard",
     },
     {
-    question: "?",
-    answers: [],
-    correctAnswer: "",
+    question: "Where does Arya go to train as a Faceless Man?",
+    answers: ["Volantis, House of the Undying", "Bravos", "Bravos; House of Black and White", "Meereen"],
+    correctAnswer: "Bravos; House of Black and White",
     },
     {
-    question: "?",
-    answers: [],
-    correctAnswer: "",
+    question: "Who killed Jon Arryn?",
+    answers: ["The Hound", "Cersei Lannister", "Little Finger", "Lysa Arryn"],
+    correctAnswer: "Lysa Arryn",
     },
     {
-    question: "?",
-    answers: [],
-    correctAnswer: "",
+    question: "Who was the last known Targaryen in Westeros?",
+    answers: ["Rheagar Targaryen","Aegon Targaryen","Aemon Targaryen","Viserys Targaryen"],
+    correctAnswer: "Aemon Targaryen",
     },
 
 ]
+//entire game js is held here
+var game = {
+    questions: questions,
+    currentQuestion: 0,
+    counter: 30,
+    correct: 0,
+    incorrect: 0,
+    unanswered:0,
+    countdown: function(){
+        game.counter--;
+        $('#counter').html(game.counter);
+        if(game.counter<=0){
+            console.log("TIMES UP!");
+            game.timeUp();
+        }
+    },
+    loadQuestion: function(){
+        timer = setInterval(game.countdown,1000);
+        $('#counter').html("30");
+        $("#questions").append(questions[game.currentQuestion].question);
+        for(var i=0; i<questions[game.currentQuestion].answers.length; i++){
+            $("#answers").append(' <button id="answer-button" class="btn btn-outline-dark" id="button-'+i+'" data-name="'+questions[game.currentQuestion].answers[i]+'">'+questions[game.currentQuestion].answers[i]+'</button>')
+        };
+    },
+    nextQuestion: function(){
+        game.counter =30;
+        $('#counter').html(game.counter);
+        game.currentQuestion++;
+        game.loadQuestion();
+        $('#questions').fadeIn(3000);
+        $('#answers').fadeIn(3000);
+
+    },
+    timeUp: function(){
+        clearInterval(timer);
+        game.unanswered++;
+        $('#message').html('<h2> OUT OF TIME!</h2>');
+        $('#message').append('<h2> The correct answer was:'+questions[game.currentQuestion].correctAnswer+ '</h2>');
+        if(game.currentQuestion==questions.length-1){
+            setTimeout(game.results, 3*1000);
+        }else{
+            setTimeout(game.nextQuestion, 3*1000); 
+        }
+    },
+    results: function(){
+        clearInterval(timer);
+        $('#message').html("<h2> all done </h2>");
+        $('#message').append("<h3> Correct:"+game.correct+ "</h3>");
+        $('#message').append("<h3> incorrect:"+game.incorrect+ "</h3>");
+        $('#message').append("<h3> unanswered:"+game.unanswered+ "</h3>");
+        $('#message').append("<button id='reset'>Reset</button");
+    },
+    clicked: function(e){
+        clearInterval(timer);
+        if ($(e.target).data("name")==questions[game.currentQuestion].correctAnswer){
+            game.answeredCorrect();
+            clearInterval(timer);
+            game.correct++;
+            $('#message').html('<h2>YOU GOT IT RIGHT!!!!!!!</h2>');
+            if(game.currentQuestion==questions.length-1){
+                setTimeout(game.results, 3*1000);
+            }else{
+                setTimeout(game.nextQuestion, 3*1000); 
+            }
+        } else{
+            game.answeredIncorrect();
+            clearInterval(timer);
+            game.incorrect++; 
+            $('#message').html('<h2> OUT OF TIME!</h2>');
+            $('#message').append('<h2> The correct answer was: '+questions[game.currentQuestion].correctAnswer+ '</h2>');
+            $('#message').html('<h2>WRONG!!!!!!!</h2>');
+            $('#message').append('<h2> The correct answer was: '+questions[game.currentQuestion].correctAnswer+ '</h2>');
+            if(game.currentQuestion==questions.length-1){
+                setTimeout(game.results, 3*1000);
+            }else{
+                setTimeout(game.nextQuestion, 3*1000); 
+            }
+        }
+    },
+    answeredCorrect: function(){
+
+    },
+    answeredIncorrect: function(){
+       
+    },
+    reset: function(){
+        game.currentQuestion = 0;
+        game.counter = 0;
+        game.correct = 0;
+        game.incorrect = 0;
+        game.unanswered = 0;
+        game.loadQuestion();
+
+    }
+
+}
