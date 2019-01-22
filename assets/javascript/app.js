@@ -151,7 +151,7 @@ var game = {
         game.counter = 15;
         $('#counter').html(game.counter);
         game.currentQuestion++;
-        game.loadQuestion(); 
+        game.loadQuestion().fadeIn(3000); 
        
 
     },
