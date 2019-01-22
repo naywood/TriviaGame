@@ -60,9 +60,9 @@ var questions = [
     correctAnswer: "Talisa",
     },
     {
-    question: "What is the official first sign of winter'?",
-    answers: ["A White Walker takes a baby","Colder temperatures", "A white raven", "Appearance or birth of dire wolves" ],
-    correctAnswer: "A white raven",
+    question: "Who is the Onion Knight?",
+    answers: ["Davos Seaworth", "Bron","Ilyn Payne", "Podrick Payne"],
+    correctAnswer: "Davos Seaworth",
     },
     {
     question: "What direwolf dies first?",
@@ -75,14 +75,14 @@ var questions = [
     correctAnswer: "Elia Martell",
     },
     {
-    question: "What is Eddard Stark's kinship to Jon Snow",
-    answers: ["Lord","Father","Uncle","Jon is his ward."],
-    correctAnswer: "Uncle",
+    question: "What are the 3 cities that make up Slaver's Bay?",
+    choices: ["Qarth, Tarth, Casterly Rock", "Astapoll, Volantis, Qarth", "Astapor, Yunkai, Meereen","Red Waste, Valyia, Vaes"],
+    answer: "Astapor, Yunkai, Meereen",
     },
     {
-    question: "How did Jojen Reed die?",
-    answers: ["Wildlings killed him", "A small army of the dead","Brandon Stark killed him","He froze to death"],
-    correctAnswer: "A small army of the dead got to him",
+    question: "What is the Widow's Wail?",
+    answers: ["The song played at the Red Wedding", "The name of a Greyjoy Ship","Joffrey's Valyrian steel sword", "Poison used to kill Lady Olenna"],
+    answeredCorrect: "Joffrey's Valyrian steel sword",
     },
     {
     question: "Who is the Queen of Thorns?",
@@ -105,14 +105,14 @@ var questions = [
     correctAnswer: "Dontos Hollard",
     },
     {
-    question: "Where does Arya go to train as a Faceless Man?",
-    answers: ["Volantis, House of the Undying", "Bravos", "Bravos; House of Black and White", "Meereen"],
-    correctAnswer: "Bravos; House of Black and White",
+    question: "How did Davos find out about Princess Shireen's death?",
+    answers: ["The Red Woman told him", "He watched as she burned at the stake","He found the wooden stag, charred", "The Lord of Light showed him"],
+    correctAnswer: "He found the wooden stag, charred",
     },
     {
-    question: "Who killed Jon Arryn?",
-    answers: ["The Hound", "Cersei Lannister", "Little Finger", "Lysa Arryn"],
-    correctAnswer: "Lysa Arryn",
+    question: "What are the names of Daenery's dragons?",
+    answers: ["Dragon, Rheagal, Viserys", "Drogon, Eagon, Viserion","Drogon, Rhaegal, Viserion", "Smaug, Saphira, Dragon"],
+    correctAnswer: "Drogon, Rhaegal, Viserion",
     },
     {
     question: "Who was the last known Targaryen in Westeros?",
@@ -141,6 +141,8 @@ var game = {
         timer = setInterval(game.countdown,1000);
         $('#counter').html("<h2>15</h2>");
         $("#questions").html(questions[this.currentQuestion].question);
+        $("#answers").html("");
+        $("#message").html("");
         for(var i=0; i<questions[this.currentQuestion].answers.length; i++){
             $("#answers").append(' <button id="answer-button" class="btn btn-outline-dark" id="button-'+i+'" data-name="'+questions[this.currentQuestion].answers[i]+'">'+questions[this.currentQuestion].answers[i]+'</button>');
         };
