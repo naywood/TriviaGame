@@ -1,7 +1,7 @@
 //click events
 $('#start').on('click', function(){
-    $('#start').remove();
-    $('#inst').remove();
+    $('#start').fadeOut(1000);
+    $('#inst').fadeOut(3000);
     game.loadQuestion();
 })
 
@@ -138,7 +138,7 @@ var game = {
     },
     loadQuestion: function(){
         timer = setInterval(game.countdown,1000);
-        $('#counter').html("<h2>15</h2>");
+        $('#counter').html("15");
         $("#questions").html(questions[this.currentQuestion].question);
         $("#answers").html("");
         $("#message").html("");
@@ -194,7 +194,7 @@ var game = {
     answeredIncorrect: function(){
         clearInterval(timer);
         game.incorrect++;
-        $('#message').html('You got it wrong!<');
+        $('#message').append('You got it wrong!<');
         $('#message').html('The correct answer was:'+questions[game.currentQuestion].correctAnswer +'!');
         if(game.currentQuestion === questions.length-1){
             setTimeout(game.results, 2*1000);
