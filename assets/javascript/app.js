@@ -34,7 +34,7 @@ var questions = [
     question: "What two material(s) are capable of killing White Walkers?",
     answers: ["Wildfire", "Weirwood and Dragonglass", "Valyrian Steel and Dragonglass","Valyrian Steel"],
     correctAnswer: "Valyrian Steel and Dragonglass",
-    imgUrl:"https://media.giphy.com/media/Hf3NtkWQnpmRG/giphy.gif",
+    imgUrl:"https://media.giphy.com/media/iEdT71eGblex2/giphy.gif",
     },
     {
     question: "How many times has the God of Light brought Beric Dondarrion back to life?",
@@ -61,9 +61,10 @@ var questions = [
     imgUrl:"https://media.giphy.com/media/ongGhJQKGK10c/giphy.gif"
     },
     {
-    question: "What is the name of Rob Stark's wife?",
-    answers: ["Walda","Talisa","Shirei","Tifini"],
-    correctAnswer: "Talisa",
+    question: "What do you call Arya's style of fighting?",
+    answers: ["Stick em with the pointy end","Needle poking","Game of Faces","Water Dancing"],
+    correctAnswer: "Water Dancing",
+    imgUrl: "https://media.giphy.com/media/3oEhn8HISbX78FH8L6/giphy.gif",
 
     },
     {
@@ -109,9 +110,10 @@ var questions = [
     imgUrl: "https://media.giphy.com/media/QnrntWsC4EYwg/giphy.gif",
     },
     {
-    question: "What is Little Finger's sigil?",
-    answers: ["Blackfish", "Mockingbird", "Raven", "Otter"],
-    correctAnswer: "Mockingbird",
+    question: "Why did Daenerys send Jorah away the first time?",
+    answers: ["Because Tyrion advised against it", "She found out he was previously a spy", "She commanded him to find the cure for greyscale", "Otter"],
+    correctAnswer: "She found out he was previously a spy",
+    imgUrl: "https://media.giphy.com/media/QB5W4VHdxscFi/giphy.gif",
 
     },
     {
@@ -218,6 +220,7 @@ var game = {
         game.incorrect++;
         $('#message').append('You got it wrong!');
         $('#message').append('The correct answer was:'+questions[game.currentQuestion].correctAnswer +'!');
+        //$('gifHere').attr("src" https://media.giphy.com/media/lGWmuzA12xjdm/giphy.gif)
         if(game.currentQuestion === questions.length-1){
             setTimeout(game.results, 2*1000);
         } else{
