@@ -8,7 +8,9 @@ $('#start').on('click', function(){
 //clicking of one of the answer buttons button
 $(document).on('click','#answer-button', function(e){
     game.clicked(e);
-  
+    $("#questions").fadeIn(3000);
+    $("#answers").fadeOut(3000);
+
 
 })
 
@@ -76,13 +78,13 @@ var questions = [
     },
     {
     question: "What are the 3 cities that make up Slaver's Bay?",
-    choices: ["Qarth, Tarth, Casterly Rock", "Astapoll, Volantis, Qarth", "Astapor, Yunkai, Meereen","Red Waste, Valyia, Vaes"],
-    answer: "Astapor, Yunkai, Meereen",
+    answers: ["Qarth, Tarth, Casterly Rock", "Astapoll, Volantis, Qarth", "Astapor, Yunkai, Meereen","Red Waste, Valyia, Vaes"],
+    correctAnswer: "Astapor, Yunkai, Meereen",
     },
     {
     question: "What is the Widow's Wail?",
     answers: ["The song played at the Red Wedding", "The name of a Greyjoy Ship","Joffrey's Valyrian steel sword", "Poison used to kill Lady Olenna"],
-    answeredCorrect: "Joffrey's Valyrian steel sword",
+    correctAnswer: "Joffrey's Valyrian steel sword",
     },
     {
     question: "Who is the Queen of Thorns?",
@@ -151,8 +153,8 @@ var game = {
         game.counter = 15;
         $('#counter').html(game.counter);
         game.currentQuestion++;
-        game.loadQuestion().fadeIn(3000); 
-       
+        game.loadQuestion();
+
 
     },
     timeUp: function(){
