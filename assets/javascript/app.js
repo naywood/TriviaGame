@@ -205,7 +205,7 @@ var game = {
         clearInterval(timer);
         game.correct++;
         $('#message').html('You got it right!');
-        $("#gifHere").html(questions[game.currentQuestion].imgUrl);
+        $("#gifHere").attr( "src",questions[game.currentQuestion].imgUrl);
         if(game.currentQuestion==questions.length-1){
             setTimeout(game.results, 2*1000);
         } else{

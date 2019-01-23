@@ -14,5 +14,16 @@ p, #answers{
 }
 
 #gifHere{
- padding-left: 60px;
+    border-radius: 10px;
+    align-content: center;
+
+}
+
+#answerGif{
+    background: black;
+}
+
+.jumbotron{
+    background-image: url("");
+    background-size: cover;
 }
