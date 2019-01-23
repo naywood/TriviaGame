@@ -3,7 +3,7 @@
 
 }
 
-p, #answers{
+p, instText{
     font-family: 'Source Sans Pro', sans-serif;
 
 }
@@ -24,6 +24,6 @@ p, #answers{
 }
 
 .jumbotron{
-    background-image: url("");
+    background-image: url("../images/snow.jpg");
     background-size: cover;
 }

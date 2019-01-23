@@ -205,7 +205,8 @@ var game = {
         clearInterval(timer);
         game.correct++;
         $('#message').html('You got it right!');
-        $("#gifHere").attr( "src",questions[game.currentQuestion].imgUrl);
+        $("#gifHere").attr( "src",questions[this.currentQuestion].imgUrl);
+        $("gifHere").fadeIn();
         if(game.currentQuestion==questions.length-1){
             setTimeout(game.results, 2*1000);
         } else{
@@ -215,8 +216,8 @@ var game = {
     answeredIncorrect: function(){
         clearInterval(timer);
         game.incorrect++;
-        $('#message').append('You got it wrong!<');
-        $('#message').img('The correct answer was:'+questions[game.currentQuestion].correctAnswer +'!');
+        $('#message').append('You got it wrong!');
+        $('#message').append('The correct answer was:'+questions[game.currentQuestion].correctAnswer +'!');
         if(game.currentQuestion === questions.length-1){
             setTimeout(game.results, 2*1000);
         } else{
