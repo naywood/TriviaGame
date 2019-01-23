@@ -8,9 +8,6 @@ $('#start').on('click', function(){
 //clicking of one of the answer buttons button
 $(document).on('click','#answer-button', function(e){
     game.clicked(e);
-    $("#questions").fadeIn(3000);
-    $("#answers").fadeOut(3000);
-
 
 })
 
