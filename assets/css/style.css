@@ -1,6 +1,6 @@
 .container{
     font-family: 'Rakkas', cursive;
-
+    
 }
 
 p, instText{
@@ -26,4 +26,8 @@ p, instText{
 .jumbotron{
     background-image: url("../images/snow.jpg");
     background-size: cover;
+    border-width: 2px;
+    border-color: black;
+    border-style: solid;
+
 }
