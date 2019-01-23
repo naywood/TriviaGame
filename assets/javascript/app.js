@@ -101,7 +101,7 @@ var questions = [
     question: "Who is the Queen of Thorns?",
     answers: ["Cersei Lannister","Margaery Tyrell","Olenna Tyrell","Lynna Mormont"],
     correctAnswer: "Olenna Tyrell",
-    imgUrl: "https://media.giphy.com/media/pQJhgVTv1RNeg/giphy.gif",
+    imgUrl: "https://media.giphy.com/media/tdagJVVnJq2FG/giphy.gif",
     },
     {
     question: "Who brings Ned Stark water while in his Black Cell?",
