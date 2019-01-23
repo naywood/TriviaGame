@@ -8,8 +8,8 @@ p, #answers{
 
 }
 
-#jumboContent{
-    padding-top: 40px;
+#jumboContent, .row {
+    padding-top: 30px;
 
 }
 
