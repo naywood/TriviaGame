@@ -146,7 +146,7 @@ var questions = [
 var game = {
     questions: questions,
     currentQuestion: 0,
-    counter: 15,
+    counter: 30,
     correct: 0,
     incorrect: 0,
     unanswered:0,
@@ -160,7 +160,7 @@ var game = {
     },
     loadQuestion: function(){
         timer = setInterval(game.countdown,1000);
-        $('#counter').html("15");
+        $('#counter').html("30");
         $("#questions").html(questions[this.currentQuestion].question);
         $("#answers").html("");
         $("#message").html("");
@@ -169,7 +169,7 @@ var game = {
         };
     },
     nextQuestion: function(){
-        game.counter = 15;
+        game.counter = 30;
         $('#counter').html(game.counter);
         game.currentQuestion++;
         game.loadQuestion();
