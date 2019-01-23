@@ -1,7 +1,7 @@
 //click events
 $('#start').on('click', function(){
     $('#start').fadeOut(1000);
-    $('#inst').fadeOut(3000);
+    $('#inst').fadeOut(1000);
     game.loadQuestion();
 })
 
@@ -165,7 +165,7 @@ var game = {
         $("#answers").html("");
         $("#message").html("");
         for(var i=0; i<questions[this.currentQuestion].answers.length; i++){
-            $("#answers").append(' <button id="answer-button" class="btn btn-outline-dark" id="button-'+i+'" data-name="'+questions[this.currentQuestion].answers[i]+'">'+questions[this.currentQuestion].answers[i]+'</button>');
+            $("#answers").append(' <button id="answer-button" class="btn btn-dark" id="button-'+i+'" data-name="'+questions[this.currentQuestion].answers[i]+'">'+questions[this.currentQuestion].answers[i]+'</button>');
         };
     },
     nextQuestion: function(){

@@ -1,5 +1,6 @@
 # TriviaGame
 
-This is a trivia game that displays one question at a time.
+This is a trivia game that displays one question at a time and is timed.
 
-There is no styling done to this as I was primarily concerned with having all the JS work correctly...that never happened....
+HTML, CSS, Jquery, and Javascript were used.
+
