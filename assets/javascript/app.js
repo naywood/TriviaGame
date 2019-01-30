@@ -150,6 +150,7 @@ var game = {
     correct: 0,
     incorrect: 0,
     unanswered:0,
+    timer: null,
     countdown: function(){
         game.counter--;
         $('#counter').html(game.counter);
@@ -158,8 +159,10 @@ var game = {
             game.timeUp();
         }
     },
+
     loadQuestion: function(){
-        timer = setInterval(game.countdown,1000);
+        clearInterval(game.timer);
+        game.timer = setInterval(game.countdown,1000);
         $('#counter').html("30");
         $("#questions").html(questions[this.currentQuestion].question);
         $("#answers").html("");
@@ -177,7 +180,7 @@ var game = {
 
     },
     timeUp: function(){
-        clearInterval(timer);
+       // clearInterval(timer);
         game.unanswered++;
         $('#message').html('<h2> OUT OF TIME!</h2>');
         $('#message').append('<h2> The correct answer was: '+questions[this.currentQuestion].correctAnswer+ '</h2>');
@@ -188,7 +191,7 @@ var game = {
         }
     },
     results: function(){
-        clearInterval(timer);
+        clearInterval(game.timer);
         $('#message').html("<h2> all done! </h2>");
         $('#message').append("<h3> Correct: "+game.correct+ "</h3>");
         $('#message').append("<h3> incorrect: "+game.incorrect+ "</h3>");
@@ -196,7 +199,7 @@ var game = {
         $('#message').append("<button id='reset'>Reset</button");
     },
     clicked: function(e){
-        clearInterval(timer);
+        //clearInterval(timer);
         if ($(e.target).data("name")==questions[this.currentQuestion].correctAnswer){
             game.answeredCorrect();
             }else{
@@ -204,7 +207,7 @@ var game = {
             }
     },
     answeredCorrect: function(){
-        clearInterval(timer);
+        //clearInterval(timer);
         game.correct++;
         $('#message').html('You got it right!');
         $("#gifHere").attr( "src",questions[this.currentQuestion].imgUrl);
@@ -216,7 +219,7 @@ var game = {
         }
     },
     answeredIncorrect: function(){
-        clearInterval(timer);
+        //clearInterval(timer);
         game.incorrect++;
         $('#message').append('You got it wrong!');
         $('#message').append('The correct answer was:'+questions[game.currentQuestion].correctAnswer +'!');
