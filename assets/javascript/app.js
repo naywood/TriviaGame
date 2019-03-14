@@ -25,7 +25,7 @@ var questions = [
     imgUrl:'https://media.giphy.com/media/lfv5vgXxMwcWA/giphy.gif',
     },
     {
-    question: "The phrase 'Valar Morghulis' or 'all men must die' is usually responded with:",
+    question: "The phrase 'Valar Morghulis' or 'all men must die' is usually responded to with _____ ______:",
     answers: ["Valar Rohnas","Valar Dohaeris", "Valar Dothraki"],
     correctAnswer: "Valar Dohaeris",
     imgUrl:"https://media.giphy.com/media/CTQqEbEWHsxCU/giphy.gif",
@@ -74,20 +74,20 @@ var questions = [
     imgUrl: "https://media.giphy.com/media/JYQyZZVIoRWsU/giphy.gif",
     },
     {
-    question: "What direwolf dies first?",
+    question: "Which direwolf dies first?",
     answers: ["Nymeria","Summer","Ghost", "Lady"],
     correctAnswer: "Lady",
     imgUrl:"https://media.giphy.com/media/eT7uKeHH5EkOA/giphy.gif",
     },
     {
     question: " 'You killed her children. Say her name!' Prince Oberyn Martell is shouting at the Mountain to say what name?",
-    answers: ["Meria Martell", "Myriah Martell","Doran Martel", "Elia Martell"],
+    answers: ["Meria Martell", "Myriah Martell","Dorne Martel", "Elia Martell"],
     correctAnswer: "Elia Martell",
     imgUrl: "https://media.giphy.com/media/pKN4RkOMN1V2o/giphy.gif",
     },
     {
     question: "What are the 3 cities that make up Slaver's Bay?",
-    answers: ["Qarth, Tarth, Casterly Rock", "Astapoll, Volantis, Qarth", "Astapor, Yunkai, Meereen","Red Waste, Valyia, Vaes"],
+    answers: ["Qarth, Tarth, Casterly Rock", "Astapolle, Volantis, Qarth", "Astapor, Yunkai, Meereen","Red Waste, Valyia, Vaes"],
     correctAnswer: "Astapor, Yunkai, Meereen",
     imgUrl: "https://media.giphy.com/media/cr4tU7OkKQKLC/giphy.gif",
     },
@@ -104,20 +104,20 @@ var questions = [
     imgUrl: "https://media.giphy.com/media/tdagJVVnJq2FG/giphy.gif",
     },
     {
-    question: "Who brings Ned Stark water while in his Black Cell?",
+    question: "Who brings Ned Stark water while he awaits execution in his Black Cell?",
     answers: ["Petyr Baelish", "Robert Baratheon",  "Maester Pycelle", "Lord Varys"],
     correctAnswer: "Lord Varys",
     imgUrl: "https://media.giphy.com/media/QnrntWsC4EYwg/giphy.gif",
     },
     {
     question: "Why did Daenerys send Jorah away the first time?",
-    answers: ["Because Tyrion advised against it", "She found out he was previously a spy", "She commanded him to find the cure for greyscale", "Otter"],
+    answers: ["Because Tyrion advised against it", "She found out he was previously a spy", "She commanded him to find the cure for greyscale", "She never sent him away, he left by choice because he hates her."],
     correctAnswer: "She found out he was previously a spy",
     imgUrl: "https://media.giphy.com/media/QB5W4VHdxscFi/giphy.gif",
 
     },
     {
-    question: "Who helped Sansa escape King's Landing following Joffrey's death?",
+    question: "Who helped Sansa escape King's Landing immediatly following Joffrey's death?",
     answers: ["Dontos Hollard", "Petyr Baelish","Lord Varys", "Shae"],
     correctAnswer: "Dontos Hollard",
     imgUrl: "https://media.giphy.com/media/60Wsy45hjFQli/giphy.gif",
