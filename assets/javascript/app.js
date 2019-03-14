@@ -221,9 +221,11 @@ var game = {
     answeredIncorrect: function(){
         //clearInterval(timer);
         game.incorrect++;
-        $('#message').append('You got it wrong!');
-        $('#message').append('The correct answer was:'+questions[game.currentQuestion].correctAnswer +'!');
-        //$('gifHere').attr("src" https://media.giphy.com/media/lGWmuzA12xjdm/giphy.gif)
+        $('#message').append('You got it wrong! <br>');
+        $('#message').append(' The correct answer was: '+questions[game.currentQuestion].correctAnswer +'!');
+        $("#gifHere").attr( "src",questions[this.currentQuestion].imgUrl);
+        $("gifHere").fadeIn();
+        // $('gifHere').append(<img src="https://media.giphy.com/media/lGWmuzA12xjdm/giphy.gif"/>);
         if(game.currentQuestion === questions.length-1){
             setTimeout(game.results, 2*1000);
         } else{
